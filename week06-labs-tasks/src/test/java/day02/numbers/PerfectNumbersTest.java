@@ -1,15 +1,21 @@
 package day02.numbers;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PerfectNumbersTest {
 
-    @Test
-    void testPerfectNumbers() {
-        PerfectNumbers perfectNumbers = new PerfectNumbers();
+    PerfectNumbers perfectNumbers;
 
+    @BeforeEach
+    void setUp() {
+        perfectNumbers = new PerfectNumbers();
+    }
+
+    @Test
+    void testIsPerfectNumber() {
         assertTrue(perfectNumbers.isPerfectNumber(6));
         assertTrue(perfectNumbers.isPerfectNumber(8128));
         assertFalse(perfectNumbers.isPerfectNumber(7246));
