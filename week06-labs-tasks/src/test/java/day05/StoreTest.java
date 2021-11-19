@@ -36,4 +36,11 @@ class StoreTest {
         assertEquals(1, typeCountList.get(1).getCount());
         assertEquals(1, typeCountList.get(2).getCount());
     }
+
+    @Test
+    void numberOfProductsPerTypeEmptyTest() {
+        Store store = new Store();
+        List<TypeCount> typeCountList = store.numberOfProductsPerType();
+        assertEquals(0, typeCountList.size());
+    }
 }
