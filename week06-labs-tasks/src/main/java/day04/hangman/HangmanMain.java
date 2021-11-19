@@ -11,8 +11,7 @@ public class HangmanMain {
     private final StringBuilder prevGuesses;
 
     public HangmanMain() {
-        String[] words = {"apple", "pear", "orange", "yellow", "jacket", "wasps", "orangutan", "chimpanzee", "length", "width", "depth"};
-        wordToFind = words[new Random().nextInt(words.length)];
+        wordToFind = Words.values()[new Random().nextInt(Words.values().length)].name().toLowerCase();
         wordFound = "_".repeat(wordToFind.length());
         numGuesses = 8;
         prevGuesses = new StringBuilder();
@@ -30,7 +29,7 @@ public class HangmanMain {
             evaluateGuess(scanner.nextLine().toLowerCase());
         } while (numGuesses > 0 && !wordFound.equals(wordToFind));
 
-        printGameResult();
+        printResult(numGuesses > 0);
     }
 
     private void evaluateGuess(String guess) {
@@ -52,16 +51,16 @@ public class HangmanMain {
     private void printStatus() {
         System.out.println();
         System.out.println("Word to find: " + wordFound);
-        System.out.println("Number of guesses: " + numGuesses);
+        System.out.println("Guesses left: " + numGuesses);
         System.out.print("Enter next guess: ");
     }
 
-    private void printGameResult() {
+    private void printResult(boolean won) {
         System.out.println();
-        if (numGuesses <= 0) {
-            System.out.println("You ran out of guesses! You lost!");
-        } else {
+        if (won) {
             System.out.println("Congratulations! You won!");
+        } else {
+            System.out.println("You ran out of guesses! You lost!");
         }
     }
 
