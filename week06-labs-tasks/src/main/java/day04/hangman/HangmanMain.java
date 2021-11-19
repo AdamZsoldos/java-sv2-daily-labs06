@@ -30,12 +30,7 @@ public class HangmanMain {
             evaluateGuess(scanner.nextLine().toLowerCase());
         } while (numGuesses > 0 && !wordFound.equals(wordToFind));
 
-        System.out.println();
-        if (numGuesses <= 0) {
-            System.out.println("You ran out of guesses! You lost!");
-        } else {
-            System.out.println("Congratulations! You won!");
-        }
+        printGameResult();
     }
 
     private void evaluateGuess(String guess) {
@@ -59,6 +54,15 @@ public class HangmanMain {
         System.out.println("Word to find: " + wordFound);
         System.out.println("Number of guesses: " + numGuesses);
         System.out.print("Enter next guess: ");
+    }
+
+    private void printGameResult() {
+        System.out.println();
+        if (numGuesses <= 0) {
+            System.out.println("You ran out of guesses! You lost!");
+        } else {
+            System.out.println("Congratulations! You won!");
+        }
     }
 
     private boolean guessValid(String guess) {
