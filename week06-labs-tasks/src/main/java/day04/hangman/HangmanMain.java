@@ -26,13 +26,14 @@ public class HangmanMain {
 
         do {
             printStatus();
-            evaluateGuess(scanner.nextLine().toLowerCase());
+            evaluateGuess(scanner.nextLine());
         } while (numGuesses > 0 && !wordFound.equals(wordToFind));
 
         printResult(numGuesses > 0);
     }
 
     private void evaluateGuess(String guess) {
+        guess = guess.toLowerCase();
         if (!guessValid(guess)) {
             System.out.println("Invalid guess!");
         } else if (guessRepeated(guess)) {
