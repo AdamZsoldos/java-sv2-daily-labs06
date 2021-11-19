@@ -21,7 +21,7 @@ class StoreTest {
     }
 
     @Test
-    void addTest() {
+    void addProductTest() {
         assertEquals(4, store.getProducts().size());
     }
 
