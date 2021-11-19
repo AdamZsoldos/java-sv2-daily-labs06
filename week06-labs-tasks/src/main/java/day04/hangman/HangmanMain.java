@@ -27,7 +27,7 @@ public class HangmanMain {
 
         do {
             printStatus();
-            evaluateGuess(scanner.nextLine());
+            evaluateGuess(scanner.nextLine().toLowerCase());
         } while (numGuesses > 0 && !wordFound.equals(wordToFind));
 
         System.out.println();
