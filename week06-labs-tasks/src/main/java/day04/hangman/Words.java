@@ -1,5 +1,7 @@
 package day04.hangman;
 
+import java.util.Random;
+
 public enum Words {
     APPLE,
     PEARS,
@@ -8,8 +10,12 @@ public enum Words {
     JACKET,
     WASPS,
     ORANGUTAN,
-    CHIMPNZEE,
+    CHIMPANZEE,
     LENGTH,
     WIDTH,
-    DEPTH
+    DEPTH;
+
+    public static String getRandomWord(Random random) {
+        return Words.values()[random.nextInt(Words.values().length)].name().toLowerCase();
+    }
 }

@@ -10,15 +10,15 @@ public class HangmanMain {
     private int numGuesses;
     private final StringBuilder prevGuesses;
 
-    public HangmanMain() {
-        wordToFind = Words.values()[new Random().nextInt(Words.values().length)].name().toLowerCase();
+    public HangmanMain(String wordToFind, int numGuesses) {
+        this.wordToFind = wordToFind;
         wordFound = "_".repeat(wordToFind.length());
-        numGuesses = 8;
+        this.numGuesses = numGuesses;
         prevGuesses = new StringBuilder();
     }
 
     public static void main(String[] args) {
-        new HangmanMain().run();
+        new HangmanMain(Words.getRandomWord(new Random()), 8).run();
     }
 
     private void run() {
